@@ -87,6 +87,7 @@ int main(int argc, char **argv)
   PLL_init_config.mul = 1;
   HAL_GPIO_init(GPIOA, &GPIO_init_config, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
   HAL_PLL_init(PLL, &PLL_init_config, 1, 1);
+  
 
   // set up UART registers
   UART_InitTypeDef UART_init_config;

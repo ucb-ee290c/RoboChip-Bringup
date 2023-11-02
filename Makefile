@@ -60,6 +60,7 @@ C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal.c
 C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal_system.c
 C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal_core.c
 C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal_clint.c
+C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal_pll.c
 C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal_plic.c
 C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal_gpio.c
 C_SOURCES += $(BSP_DIR)$(CHIP)/src/$(CHIP)_hal_i2c.c
