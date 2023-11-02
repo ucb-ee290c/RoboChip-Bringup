@@ -6,7 +6,7 @@
 
 TARGET ?= firmware
 
-CHIP ?= examplechip
+CHIP ?= robochip
 
 #################################
 # RISCV Toolchain
