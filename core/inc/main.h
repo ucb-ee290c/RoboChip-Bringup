@@ -28,7 +28,7 @@ extern "C"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include "robochip_hal.h"
+#include "robo23_hal.h"
   /* USER CODE END Includes */
 
   /* Exported types ------------------------------------------------------------*/

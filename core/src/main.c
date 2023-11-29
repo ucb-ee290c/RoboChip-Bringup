@@ -82,11 +82,11 @@ int main(int argc, char **argv)
   GPIO_init_config.mode = GPIO_MODE_OUTPUT;
   GPIO_init_config.pull = GPIO_PULL_NONE;
   GPIO_init_config.drive_strength = GPIO_DS_STRONG;
-  PLL_InitTypeDef PLL_init_config;
+  /**PLL_InitTypeDef PLL_init_config;
   PLL_init_config.div = 1;
-  PLL_init_config.mul = 1;
+  PLL_init_config.mul = 1;*/
   HAL_GPIO_init(GPIOA, &GPIO_init_config, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2 | GPIO_PIN_3);
-  HAL_PLL_init(PLL, &PLL_init_config, 1, 1);
+  /*HAL_PLL_init(PLL, &PLL_init_config, 1, 1);*/
   
 
   // set up UART registers
@@ -103,7 +103,7 @@ int main(int argc, char **argv)
   while (1)
   {
     uint64_t mhartid = READ_CSR("mhartid");
-    printf("Hello world from hart %d: %d\n", mhartid, counter);
+    printf("Hello world from hart %ld: %d\n", mhartid, counter);
     counter += 1;
     /* USER CODE END WHILE */
   }

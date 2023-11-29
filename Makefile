@@ -6,7 +6,7 @@
 
 TARGET ?= firmware
 
-CHIP ?= robochip
+CHIP ?= robo23
 
 #################################
 # RISCV Toolchain
