@@ -126,11 +126,11 @@ void __attribute__((noreturn)) __main(void)
     printf("Hello world from hart %ld: %d\n", mhartid, counter);
     counter += 1;
     /* USER CODE END WHILE */
-    //printf("=========Start Simple test=========\n");
-    //simple_functional_test();
-    //printf("=========Start benchmark test=========\n");
-    //bmark_test();
-    printf("=========Start main test=========\n");
-    main_test();
+    printf("=========Start Simple test=========\n");
+    simple_functional_test();
+    printf("=========Start benchmark test=========\n");
+    bmark_test();
+    //printf("=========Start main test=========\n");
+    //main_test();
   }
 }
