@@ -237,59 +237,88 @@ bool ROCC_MatDotVec(float *TMat_head, float *yVec_addr, float *xHat_addr, int t_
 
 
 int main_test() {
+    uint32_t start_time;
+    uint32_t end_time;
     
     uint32_t gtruth;
+    start_time = HAL_CLINT_getTime();
     float a = get_groundtruth_vecDvec(T_row_data, Y_data, X_data, Y_SIZE, X_SIZE);
     gtruth = *((uint32_t*)& (a));
+    end_time = HAL_CLINT_getTime();
     printf("truth  %x  \n", gtruth);
+    printf("Total time for calculation of default: %d \n", end_time - start_time);
 
     float sum = 0;
+    start_time = HAL_CLINT_getTime();
     ROCC_VecDotVec(T_row_data, Y_data, X_data, DATA_SIZE, Y_SIZE, X_SIZE, &sum, true);
     gtruth = *((uint32_t*)& (sum));
+    end_time = HAL_CLINT_getTime();
     printf("result  %x  \n", gtruth);
-    printf(" ***** case 1 end ****** \n");
+    printf("Total time for calculation of LQR: %d \n", end_time - start_time);
+
+    printf(" ***** case 1 end : vec[31] ****** \n");
 
 
     float T_row_data1[32] = {-660.43, 85.23, 16, 42, 73, 87, 95, 92,  0, 58, 91, 91, 76,  3, 59, 67, 78, 51, 66, 62, -80.19, 86, 21, 96, 55, 53, 27, 64, 83, 25, 13, 58};
     float Y_data1[13] ={46, 77,  7, -86.1, 74, 64, 50, 65, 37, 41, -34.32, -34.32, -1.4223};
     float X_data1[19] ={12,  3, 55, 30,  3.553, -95.1, 53, 38, 75, 54, 57, 81, 92, 29, 56, 76, 17, 22, 26};
+    start_time = HAL_CLINT_getTime();
     a = get_groundtruth_vecDvec(T_row_data1, Y_data1, X_data1, 13, 19);
     gtruth = *((uint32_t*)& (a));
+    end_time = HAL_CLINT_getTime();
     printf("truth  %x  \n", gtruth);
+    printf("Total time for calculation of default: %d \n", end_time - start_time);
 
     sum = 0;
+    start_time = HAL_CLINT_getTime();
     ROCC_VecDotVec(T_row_data1, Y_data1, X_data1, 32, 13, 19, &sum, true);
     gtruth = *((uint32_t*)& (sum));
+    end_time = HAL_CLINT_getTime();
     printf("result  %x  \n", gtruth);
-    printf(" ***** case 2 end ****** \n");
+    printf("Total time for calculation of LQR: %d \n", end_time - start_time);
+
+    printf(" ***** case 2 end : vec[32] ****** \n");
 
 
     float T_row_data2[6] = {-660.43, 85.23, 16, 42, 73, 87};
     float Y_data2[2] ={46, 77.343};
     float X_data2[4] ={3.553, -95.1, 53, 38};
+    start_time = HAL_CLINT_getTime();
     a = get_groundtruth_vecDvec(T_row_data2, Y_data2, X_data2, 2, 4);
     gtruth = *((uint32_t*)& (a));
+    end_time = HAL_CLINT_getTime();
     printf("truth  %x  \n", gtruth);
+    printf("Total time for calculation of default: %d \n", end_time - start_time);
 
     sum = 0;
+    start_time = HAL_CLINT_getTime();
     ROCC_VecDotVec(T_row_data2, Y_data2, X_data2, 6, 2, 4, &sum, true);
     gtruth = *((uint32_t*)& (sum));
+    end_time = HAL_CLINT_getTime();
     printf("result  %x  \n", gtruth);
-    printf(" ***** case 3 end ****** \n");
+    printf("Total time for calculation of LQR: %d \n", end_time - start_time);
+
+    printf(" ***** case 3 end ****** : vec[6] \n");
     
 
     //-----------------------------Mat_vec test ------------------------------
-    printf(" \n\n\n***** case matrix_vec start ****** \n");
+    printf(" \n***** case matrix_vec start ****** \n");
     // get ground truth printed
 
     // from constMatrix.h
+    start_time = HAL_CLINT_getTime();
     float* truth = get_groundtruth_MatDvec(T_matrix, Y_data_matrix, X_data_matrix, P, N, N+M, P+N);
+    end_time = HAL_CLINT_getTime();
     printf("Truth: ");
+    printf("Total time for calculation of default: %d \n", end_time - start_time);
     print_float_arr_hex(truth, N+M);
 
     float u_nextX_vector[(N+M)];
+    start_time = HAL_CLINT_getTime();
     ROCC_MatDotVec(T_matrix, Y_data_matrix, X_data_matrix, N+M, P+N, P, N, u_nextX_vector);
+    end_time = HAL_CLINT_getTime();
     printf("Result: ");
+    printf("Total time for calculation of LQR: %d \n", end_time - start_time);
     print_float_arr_hex(u_nextX_vector, N+M);
 
     return 0;
