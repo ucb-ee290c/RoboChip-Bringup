@@ -16,10 +16,10 @@ float dot_product_simple(float v[], float u[], int n)
 }
 
 void print_arr(float arr_head[], int length){
-    uint32_t gtruth;
+    float gtruth;
     printf("[ ");
     for (int i=0; i < length; i++) {
-        gtruth = *((uint32_t*)& (arr_head[i]));
+        gtruth = *((float*)& (arr_head[i]));
         printf("%f ", gtruth);
     }
     printf("]");

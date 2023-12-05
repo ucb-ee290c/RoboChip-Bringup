@@ -18,7 +18,6 @@
 #include "functionalTest.h"
 #include "test.h"
 #include "bmarkTest.h"
-#include "pedulemnTest.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -101,11 +100,12 @@ int main(int argc, char **argv)
   //HAL_UART_init(UART0, &UART_init_config);
   SET_BITS(UART0->TXCTRL, UART_TXCTRL_TXEN_MSK);
   /* USER CODE END 2 */
-
+  // RCC->TILE0_RESET = 0;
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    // printf("fuck\n");
     /**printf("10000 start");
     HAL_delay(10000);
     printf("10000 end");
@@ -146,8 +146,9 @@ void __attribute__((noreturn)) __main(void)
     //bmark_test();
     //printf("=========Start main test=========\n");
     //main_test();
-    printf("=========Start Pendulum Data Collection=========\n");
-    pendulum_test();
+    //printf("=========Start Pendulum Data Collection=========\n");
+    //pendulum_test(200);
+    //printf("=========End Pendulum Data Collection=========\n");
     /*HAL_delay(1000);
 
     printf("100000 start\n");

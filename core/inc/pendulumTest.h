@@ -7,4 +7,4 @@
 #include <stdlib.h>
 #include <string.h>
 
-int pedulemn_test();
+int pendulum_test();
