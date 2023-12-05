@@ -18,6 +18,7 @@
 #include "functionalTest.h"
 #include "test.h"
 #include "bmarkTest.h"
+#include "pendulumTest.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -145,6 +146,8 @@ void __attribute__((noreturn)) __main(void)
     //bmark_test();
     //printf("=========Start main test=========\n");
     //main_test();
+    printf("=========Start Pendulum Data Collection=========\n");
+    pendulum_test();
     /*HAL_delay(1000);
 
     printf("100000 start\n");
