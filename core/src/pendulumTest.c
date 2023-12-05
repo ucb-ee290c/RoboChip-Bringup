@@ -8,6 +8,8 @@
 #include <string.h>
 
 // computes (t^T)y
+#define ACC_SIZE 12
+
 bool ROCC_dot(float *TMat_row_head, float *yVec_addr, int t_len, int y_len, float *sum)
 {
     int N_per_fold = ACC_SIZE;
@@ -82,7 +84,7 @@ bool ROCC_gemv(float *TMat_head, float *yVec_addr, int t_col_len, int t_row_len,
 
     // Step 1:
     // Make sure dimension of T matrix match with input vector and state vector
-    if (t_row_len != y_len + x_len){
+    if (t_row_len != y_len){
         printf("Error!"); 
         return false;
     }else{
@@ -93,7 +95,7 @@ bool ROCC_gemv(float *TMat_head, float *yVec_addr, int t_col_len, int t_row_len,
         for (int i = 0; i < t_col_len; i++) {
             current_row = TMat_head + t_row_len * i; 
             //ROCC_VecDotVec(current_row, yVec_addr, xHat_addr, t_row_len, y_len, x_len, &u_nextX_vector[i]);
-            ROCC_VecDotVec(current_row, y_xhat_concat, t_row_len, y_len, &u_nextX_vector[i]);
+            ROCC_dot(current_row, y_xhat_concat, t_row_len, y_len, &u_nextX_vector[i]);
             
         }
         return true;

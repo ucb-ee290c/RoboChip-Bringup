@@ -18,7 +18,7 @@
 #include "functionalTest.h"
 #include "test.h"
 #include "bmarkTest.h"
-#include "pendulumTest.h"
+#include "pedulemnTest.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
