@@ -15,6 +15,16 @@ float dot_product_simple(float v[], float u[], int n)
     return result;
 }
 
+void print_arr(float arr_head[], int length){
+    uint32_t gtruth;
+    printf("[ ");
+    for (int i=0; i < length; i++) {
+        gtruth = *((uint32_t*)& (arr_head[i]));
+        printf("%f ", gtruth);
+    }
+    printf("]");
+}
+
 // this is a simplified version of test
 // all vector are preset, no need to append zeros and only take 1 fold
 int simple_functional_test() {
@@ -80,6 +90,10 @@ int simple_functional_test() {
     asm volatile ("fence");
     end_time = HAL_CLINT_getTime();
     printf("result sum  %x \n", sum_2);
+    printf("Oirginal t_row value: ");
+    print_arr(*((uint32_t*)& (t_row3)), 15);
+    printf("Oirginal t_row value: ");
+    print_arr(*((uint32_t*)& (y_xhat3)), 15);
     printf("Total time for calculation of LQR: %d \n", end_time - start_time);
 
     start_time = HAL_CLINT_getTime();

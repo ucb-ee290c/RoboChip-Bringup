@@ -139,13 +139,13 @@ void __attribute__((noreturn)) __main(void)
     printf("Hello world from hart %ld: %d\n", mhartid, counter);
     counter += 1;
     /* USER CODE END WHILE */
-    //printf("=========Start Simple test=========\n");
-    //simple_functional_test();
+    printf("=========Start Simple test=========\n");
+    simple_functional_test();
     //printf("=========Start benchmark test=========\n");
     //bmark_test();
     //printf("=========Start main test=========\n");
     //main_test();
-    HAL_delay(1000);
+    /*HAL_delay(1000);
 
     printf("100000 start\n");
     HAL_delay(100000);
@@ -157,6 +157,6 @@ void __attribute__((noreturn)) __main(void)
 
     printf("10000000 start\n");
     HAL_delay(10000000);
-    printf("10000000 end\n");
+    printf("10000000 end\n");*/
   }
 }
