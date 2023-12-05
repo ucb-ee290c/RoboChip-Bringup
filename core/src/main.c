@@ -15,9 +15,6 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "functionalTest.h"
-#include "test.h"
-#include "bmarkTest.h"
 #include "pendulumTest.h"
 
 /* Private includes ----------------------------------------------------------*/
